@@ -1,0 +1,33 @@
+// Design System — Camada 0 · Tipografia (ADR-014/015)
+// Exo 2 (marca/títulos) + Inter (corpo). Escala tipográfica única.
+
+:root {
+  --font-brand: 'Exo 2', 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body:  'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:  ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  // Escala (px) — usar em vez de números mágicos
+  --text-2xs: 11px;
+  --text-xs:  12px;
+  --text-sm:  13px;
+  --text-md:  14px;
+  --text-base:15px;
+  --text-lg:  17px;
+  --text-xl:  20px;
+  --text-2xl: 24px;
+  --text-3xl: 28px;
+  --text-4xl: 34px;
+
+  --lh-tight: 1.15;
+  --lh-snug:  1.35;
+  --lh-base:  1.6;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+
+  --tracking-tight: -.01em;
+  --tracking-wide:  .08em;
+  --tracking-caps:  .14em;
+}

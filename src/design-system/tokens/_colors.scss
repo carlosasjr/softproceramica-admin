@@ -1,0 +1,68 @@
+// Design System — Camada 0 · Cores (ADR-015, ADR-014)
+// Fonte única de cor. Nenhuma página deve usar hex hardcoded — sempre var(--token).
+
+:root {
+  // Marca
+  --brand: #f58220;
+  --brand-600: #e86a0c;
+  --brand-700: #c85908;
+  --brand-050: #fff4ea;
+  --ring: rgba(245, 130, 32, .35);
+
+  // Superfícies
+  --ground: #f7f7f8;
+  --surface: #ffffff;
+  --surface-2: #f7f7f8;
+  --surface-3: #f0f1f3;
+
+  // Bordas
+  --border: #e6e6e9;
+  --border-strong: #d6d7db;
+
+  // Tinta (texto)
+  --ink: #1b1f24;
+  --ink-2: #5b6470;
+  --ink-3: #8a93a0;
+
+  // Tons de status (fg / bg / dot) — consumidos por AppStatus/AppBadge
+  --tone-orange-fg: #b45309; --tone-orange-bg: rgba(245,130,32,.14); --tone-orange-dot: #f58220;
+  --tone-green-fg:  #15803d; --tone-green-bg:  rgba(22,163,74,.13);  --tone-green-dot:  #16a34a;
+  --tone-red-fg:    #b91c1c; --tone-red-bg:    rgba(229,72,77,.13);  --tone-red-dot:    #e5484d;
+  --tone-blue-fg:   #1d4ed8; --tone-blue-bg:   rgba(59,130,246,.13); --tone-blue-dot:   #3b82f6;
+  --tone-amber-fg:  #a16207; --tone-amber-bg:  rgba(245,158,11,.15); --tone-amber-dot:  #f59e0b;
+  --tone-grey-fg:   #4b5563; --tone-grey-bg:   rgba(107,114,128,.13);--tone-grey-dot:   #8a93a0;
+  --tone-purple-fg: #6d28d9; --tone-purple-bg: rgba(139,92,246,.14); --tone-purple-dot: #8b5cf6;
+
+  // Origens da Timeline (ADR-013) — cor + fundo suave
+  --origin-whatsapp: #16a34a;   --origin-whatsapp-bg: rgba(22,163,74,.12);
+  --origin-crm: #3b82f6;        --origin-crm-bg: rgba(59,130,246,.12);
+  --origin-atendimento: #8b5cf6;--origin-atendimento-bg: rgba(139,92,246,.13);
+  --origin-agenda: #f58220;     --origin-agenda-bg: rgba(245,130,32,.13);
+  --origin-comercial: #e5484d;  --origin-comercial-bg: rgba(229,72,77,.12);
+  --origin-sistema: #9a7b5f;    --origin-sistema-bg: rgba(154,123,95,.14);
+  --origin-ia: #06b6d4;         --origin-ia-bg: rgba(6,182,212,.12);
+
+  // Semânticos de feedback (Product Polish)
+  --success: #16a34a; --success-bg: rgba(22,163,74,.12);
+  --danger:  #e5484d; --danger-bg:  rgba(229,72,77,.12);
+  --warning: #f59e0b; --warning-bg: rgba(245,158,11,.14);
+  --info:    #3b82f6; --info-bg:    rgba(59,130,246,.12);
+}
+
+.body--dark {
+  --ground: #14181d;
+  --surface: #1b1f24;
+  --surface-2: #181c21;
+  --surface-3: #21262d;
+  --border: #2a3038;
+  --border-strong: #363d47;
+  --ink: #eef1f5;
+  --ink-2: #a7b0bd;
+  --ink-3: #77818e;
+  --brand-050: #2a1d10;
+
+  // Ajuste de contraste dos tons no escuro (fg mais claro)
+  --tone-orange-fg: #f7a862; --tone-green-fg: #5fce8f; --tone-red-fg: #f2868a;
+  --tone-blue-fg: #7ea9f7;   --tone-amber-fg: #f6c56a; --tone-grey-fg: #aab3c0;
+  --tone-purple-fg: #b79bf5;
+}

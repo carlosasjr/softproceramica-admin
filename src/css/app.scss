@@ -1,0 +1,93 @@
+// Fontes oficiais self-hosted (ADR-014) — sem CDN.
+@import '@fontsource/exo-2/500.css';
+@import '@fontsource/exo-2/600.css';
+@import '@fontsource/exo-2/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+// Design System — Camada 0 (tokens). Fonte única de cor/tipografia/layout (ADR-015).
+@import '../design-system/tokens/index.scss';
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  letter-spacing: .1px;
+}
+.body--light { background: var(--ground); }
+.body--dark  { background: var(--ground); }
+
+// Títulos com a fonte da marca.
+.font-brand,
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6 {
+  font-family: var(--font-brand);
+  letter-spacing: var(--tracking-tight);
+}
+
+// ---- Utilitários de marca ----
+.text-ink   { color: var(--ink) !important; }
+.text-ink-2 { color: var(--ink-2) !important; }
+.text-ink-3 { color: var(--ink-3) !important; }
+.bg-surface   { background: var(--surface) !important; }
+.bg-surface-2 { background: var(--surface-2) !important; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+.brand-gradient {
+  background: linear-gradient(135deg, #f58220 0%, #e86a0c 55%, #c85908 100%);
+}
+.brand-gradient-text {
+  background: linear-gradient(120deg, #f58220, #ff9d4d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// ---- Cartão base (legado — preferir <AppCard>) ----
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  transition: box-shadow var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease), border-color var(--dur-slow) var(--ease);
+}
+.dash-card--hover:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+// ---- Barra lateral / itens de menu ----
+.nav-item {
+  border-radius: var(--radius-md);
+  margin: 2px 10px;
+  min-height: var(--touch);
+  color: var(--ink-2);
+  font-weight: var(--fw-medium);
+  transition: background var(--dur-base) var(--ease), color var(--dur-base) var(--ease);
+}
+.nav-item .q-icon { color: var(--ink-3); transition: color var(--dur-base) var(--ease); }
+.nav-item:hover { background: var(--surface-3); color: var(--ink); }
+.nav-item:hover .q-icon { color: var(--brand); }
+.nav-item--active {
+  background: var(--brand-050);
+  color: var(--brand-600);
+  font-weight: var(--fw-semibold);
+}
+.nav-item--active .q-icon { color: var(--brand) !important; }
+
+// ---- Scrollbar discreta ----
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-3); background-clip: padding-box; }
+
+// ---- Foco acessível (Product Polish) ----
+.q-btn:focus-visible, a:focus-visible, .q-item:focus-visible, .app-focusable:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

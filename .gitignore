@@ -1,0 +1,19 @@
+# Dependências / build
+node_modules
+/dist
+/.quasar
+/src-capacitor
+/src-cordova
+
+# Ambiente / logs
+.env
+.env.*.local
+*.log
+npm-debug.log*
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json

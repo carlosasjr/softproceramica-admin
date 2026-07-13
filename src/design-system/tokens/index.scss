@@ -1,0 +1,5 @@
+// Design System — Camada 0 · Índice de tokens (ADR-015)
+// Importar UMA vez (via app.scss). Ordem: cor → tipografia → layout.
+@import './colors';
+@import './typography';
+@import './layout';

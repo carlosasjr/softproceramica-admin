@@ -1,0 +1,47 @@
+// Design System — Camada 0 · Espaçamento, raio, elevação, movimento (ADR-015)
+
+:root {
+  // Espaçamento — grade 4/8
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  // Raio
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-pill: 999px;
+
+  // Elevação
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, .05);
+  --shadow-2: 0 8px 22px rgba(16, 24, 40, .10);
+  --shadow-3: 0 18px 44px rgba(16, 24, 40, .12);
+
+  // Movimento (Product Polish) — respeitar prefers-reduced-motion
+  --dur-fast: .14s;
+  --dur-base: .2s;
+  --dur-slow: .32s;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+
+  // Larguras de página (AppPage) — resolve T1 (max-width divergente)
+  --page-narrow: 900px;
+  --page-default: 1180px;
+  --page-wide: 1400px;
+
+  // Estrutura
+  --header-h: 60px;
+  --touch: 44px; // alvo de toque mínimo (mobile)
+}
+
+.body--dark {
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-2: 0 8px 22px rgba(0, 0, 0, .45);
+  --shadow-3: 0 18px 44px rgba(0, 0, 0, .5);
+}

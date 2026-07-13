@@ -1,0 +1,24 @@
+// Design System — SoftPro Conecta Cerâmica (ADR-014).
+// Paleta oficial da marca: laranja #F58220 + grafite #4A4A4A + neutros.
+
+$primary   : #f58220;
+$secondary : #4a4a4a;
+$accent    : #e86a0c;
+
+$dark      : #1b1f24;
+$dark-page : #14171b;
+
+$positive  : #16a34a;
+$negative  : #e5484d;
+$info      : #3b82f6;
+$warning   : #f59e0b;
+
+// Tipografia oficial: títulos Exo 2, texto Inter.
+$typography-font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+// Cantos e sombras — leve, moderno.
+$generic-border-radius: 12px;
+$button-border-radius: 10px;
+
+$shadow-color: #101828;
+$shadow-transition: box-shadow .28s cubic-bezier(.25, .8, .5, 1);

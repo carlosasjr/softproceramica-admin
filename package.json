@@ -1,0 +1,39 @@
+{
+  "name": "softproceramica-admin",
+  "version": "0.1.0",
+  "description": "SoftPro Conecta Cerâmica — Console Administrativo do Control Plane (Quasar)",
+  "productName": "Conecta Admin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "lint": "eslint --ext .js,.ts,.vue ./src",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "e2e:shots": "node test/e2e/run.mjs",
+    "e2e": "quasar build && node test/e2e/run.mjs"
+  },
+  "dependencies": {
+    "@fontsource/exo-2": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@quasar/extras": "^1.16.12",
+    "axios": "^1.7.7",
+    "pinia": "^2.2.4",
+    "quasar": "^2.17.1",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^2.0.4",
+    "@types/node": "^20.16.11",
+    "autoprefixer": "^10.4.20",
+    "playwright-core": "^1.61.1",
+    "sass-embedded": "^1.80.3",
+    "typescript": "~5.6.3",
+    "vue-tsc": "^2.1.6"
+  },
+  "engines": {
+    "node": "^20 || ^22",
+    "npm": ">= 6.13.4"
+  }
+}
