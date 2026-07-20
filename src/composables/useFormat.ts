@@ -20,7 +20,7 @@ export function useFormat() {
       const d = new Date(value);
       return Number.isNaN(d.getTime()) ? '—' : dateTimeFmt.format(d);
     },
-    documento(value: string | null | undefined): string {
+    document(value: string | null | undefined): string {
       if (!value) return '—';
       const v = value.replace(/\D/g, '');
       if (v.length === 11) return v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');

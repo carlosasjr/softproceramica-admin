@@ -1,21 +1,6 @@
 // Tipos compartilhados usados pelo Console (Control Plane, ADR-024).
-// O domínio operacional do Tenant NÃO é consumido pelo operador — só envelopes de API,
-// o usuário autenticado e o evento de Timeline (design-system).
-
-export interface TimelineEvent {
-  id: number;
-  customer_id: number;
-  occurred_at: string;
-  type: string;
-  source_context: string;
-  subject_type: string | null;
-  subject_id: number | null;
-  actor_type: string | null;
-  actor_id: number | null;
-  title: string;
-  summary: string | null;
-  metadata: Record<string, unknown> | null;
-}
+// O domínio operacional do Tenant NÃO é consumido pelo operador — só envelopes de API
+// e o usuário autenticado.
 
 // Envelopes da API (Laravel Resource / paginação).
 export interface Paginated<T> {
