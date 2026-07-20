@@ -47,10 +47,10 @@
         @request="onRequest"
         @row-click="(_e, row) => open(row)"
       >
-        <template #body-cell-nome="props">
+        <template #body-cell-name="props">
           <q-td :props="props">
-            <div class="lead-name">{{ props.row.nome }}</div>
-            <div class="lead-sub">{{ props.row.empresa || props.row.email }}</div>
+            <div class="lead-name">{{ props.row.name }}</div>
+            <div class="lead-sub">{{ props.row.company || props.row.email }}</div>
           </q-td>
         </template>
 
@@ -60,12 +60,12 @@
           </q-td>
         </template>
 
-        <template #body-cell-segmento="props">
-          <q-td :props="props">{{ props.row.segmento ?? '—' }}</q-td>
+        <template #body-cell-segment="props">
+          <q-td :props="props">{{ props.row.segment ?? '—' }}</q-td>
         </template>
 
-        <template #body-cell-origem="props">
-          <q-td :props="props">{{ props.row.origem ?? '—' }}</q-td>
+        <template #body-cell-source="props">
+          <q-td :props="props">{{ props.row.source ?? '—' }}</q-td>
         </template>
 
         <template #body-cell-created_at="props">
@@ -102,18 +102,18 @@ const statusFilter = ref<string | null>(null);
 const pagination = ref({ page: 1, rowsPerPage: 0, rowsNumber: 0 });
 
 const statusOptions = [
-  { label: 'Novo', value: 'novo' },
-  { label: 'Em contato', value: 'em_contato' },
-  { label: 'Qualificado', value: 'qualificado' },
-  { label: 'Convertido', value: 'convertido' },
-  { label: 'Descartado', value: 'descartado' },
+  { label: 'Novo', value: 'new' },
+  { label: 'Em contato', value: 'contacted' },
+  { label: 'Qualificado', value: 'qualified' },
+  { label: 'Convertido', value: 'converted' },
+  { label: 'Descartado', value: 'discarded' },
 ];
 
 const columns: QTableColumn[] = [
-  { name: 'nome', label: 'Lead', field: 'nome', align: 'left' },
-  { name: 'segmento', label: 'Segmento', field: 'segmento', align: 'left' },
+  { name: 'name', label: 'Lead', field: 'name', align: 'left' },
+  { name: 'segment', label: 'Segmento', field: 'segment', align: 'left' },
   { name: 'status', label: 'Status', field: 'status', align: 'left' },
-  { name: 'origem', label: 'Origem', field: 'origem', align: 'left' },
+  { name: 'source', label: 'Origem', field: 'source', align: 'left' },
   { name: 'created_at', label: 'Captado em', field: 'created_at', align: 'left' },
 ];
 

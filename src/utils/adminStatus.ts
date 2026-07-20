@@ -15,11 +15,11 @@ const TENANT: Record<TenantStatus, Badge> = {
 };
 
 const LEAD: Record<LeadStatus, Badge> = {
-  novo: { label: 'Novo', tone: 'blue' },
-  em_contato: { label: 'Em contato', tone: 'amber' },
-  qualificado: { label: 'Qualificado', tone: 'purple' },
-  convertido: { label: 'Convertido', tone: 'green' },
-  descartado: { label: 'Descartado', tone: 'grey' },
+  new: { label: 'Novo', tone: 'blue' },
+  contacted: { label: 'Em contato', tone: 'amber' },
+  qualified: { label: 'Qualificado', tone: 'purple' },
+  converted: { label: 'Convertido', tone: 'green' },
+  discarded: { label: 'Descartado', tone: 'grey' },
 };
 
 const RUN: Record<ProvisioningStatus, Badge> = {
@@ -37,10 +37,10 @@ export const tenantBadge = (s: string): Badge => TENANT[s as TenantStatus] ?? FA
 export const leadBadge = (s: string): Badge => LEAD[s as LeadStatus] ?? FALLBACK;
 export const runBadge = (s: string): Badge => RUN[s as ProvisioningStatus] ?? FALLBACK;
 
-/** Opções de triagem de lead (exclui `convertido` — só a promoção o atinge). */
+/** Opções de triagem de lead (exclui `converted` — só a promoção o atinge). */
 export const LEAD_TRIAGE_OPTIONS: { label: string; value: LeadStatus }[] = [
-  { label: 'Novo', value: 'novo' },
-  { label: 'Em contato', value: 'em_contato' },
-  { label: 'Qualificado', value: 'qualificado' },
-  { label: 'Descartado', value: 'descartado' },
+  { label: 'Novo', value: 'new' },
+  { label: 'Em contato', value: 'contacted' },
+  { label: 'Qualificado', value: 'qualified' },
+  { label: 'Descartado', value: 'discarded' },
 ];
