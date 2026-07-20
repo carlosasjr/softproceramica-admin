@@ -31,6 +31,12 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # `.quasar/` é gerado (gitignored) — sem ele, vue-tsc perde o tsconfig base e o
+      # moduleResolution, cascateando erros em .d.ts do Quasar/Vite. `quasar build` gera no
+      # Docker; o verify precisa gerar explicitamente antes do typecheck.
+      - name: Quasar prepare (gera .quasar/tsconfig.json)
+        run: pnpm exec quasar prepare
+
       - name: Typecheck (vue-tsc)
         run: pnpm run typecheck
 
