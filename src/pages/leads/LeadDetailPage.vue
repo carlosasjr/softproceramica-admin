@@ -1,16 +1,16 @@
 <template>
   <AppPage width="default">
-    <AppPageTitle eyebrow="Lead de Plataforma" :title="lead?.nome ?? '—'" :subtitle="lead?.empresa ?? ''">
+    <AppPageTitle eyebrow="Lead de Plataforma" :title="lead?.name ?? '—'" :subtitle="lead?.company ?? ''">
       <template #actions>
         <q-btn flat no-caps icon="sym_o_arrow_back" label="Voltar" :to="{ name: 'leads' }" />
         <q-btn
-          v-if="lead && lead.status !== 'convertido'"
+          v-if="lead && lead.status !== 'converted'"
           color="primary"
           no-caps
           unelevated
           icon="sym_o_swap_horiz"
           label="Promover a Tenant"
-          :to="{ name: 'tenant-novo', query: { lead: lead.id } }"
+          :to="{ name: 'tenant-new', query: { lead: lead.id } }"
         />
       </template>
     </AppPageTitle>
@@ -18,7 +18,7 @@
     <AppLoading v-if="loading" />
 
     <template v-else-if="lead">
-      <q-banner v-if="lead.status === 'convertido'" class="conv-banner q-mb-md" rounded>
+      <q-banner v-if="lead.status === 'converted'" class="conv-banner q-mb-md" rounded>
         <template #avatar><q-icon name="sym_o_check_circle" color="positive" /></template>
         Convertido em {{ fmt.date(lead.converted_at) }}.
         <q-btn
@@ -37,15 +37,15 @@
           <AppCard>
             <div class="card-label">Contato</div>
             <div class="detail-row"><span>E-mail</span><b>{{ lead.email }}</b></div>
-            <div class="detail-row"><span>Telefone</span>{{ fmt.phone(lead.telefone) }}</div>
-            <div class="detail-row"><span>Cidade/UF</span>{{ [lead.cidade, lead.uf].filter(Boolean).join(' / ') || '—' }}</div>
-            <div class="detail-row"><span>Segmento</span>{{ lead.segmento ?? '—' }}</div>
-            <div class="detail-row"><span>Porte</span>{{ lead.porte ?? '—' }}</div>
-            <div class="detail-row"><span>Plano de interesse</span>{{ lead.plano_slug ?? '—' }}</div>
-            <template v-if="lead.mensagem">
+            <div class="detail-row"><span>Telefone</span>{{ fmt.phone(lead.phone) }}</div>
+            <div class="detail-row"><span>Cidade/UF</span>{{ [lead.city, lead.state].filter(Boolean).join(' / ') || '—' }}</div>
+            <div class="detail-row"><span>Segmento</span>{{ lead.segment ?? '—' }}</div>
+            <div class="detail-row"><span>Porte</span>{{ lead.company_size ?? '—' }}</div>
+            <div class="detail-row"><span>Plano de interesse</span>{{ lead.plan_slug ?? '—' }}</div>
+            <template v-if="lead.message">
               <q-separator class="q-my-sm" />
               <div class="card-label">Mensagem</div>
-              <p class="lead-msg">{{ lead.mensagem }}</p>
+              <p class="lead-msg">{{ lead.message }}</p>
             </template>
           </AppCard>
         </div>
@@ -55,7 +55,7 @@
             <div class="card-label">Triagem</div>
             <div class="detail-row"><span>Status</span><AppStatus :label="leadBadge(lead.status).label" :tone="leadBadge(lead.status).tone" /></div>
             <q-select
-              v-if="lead.status !== 'convertido'"
+              v-if="lead.status !== 'converted'"
               v-model="newStatus"
               outlined
               dense
@@ -71,7 +71,7 @@
 
           <AppCard class="q-mt-md">
             <div class="card-label">Atribuição</div>
-            <div class="detail-row"><span>Origem</span>{{ lead.origem ?? '—' }}</div>
+            <div class="detail-row"><span>Origem</span>{{ lead.source ?? '—' }}</div>
             <div class="detail-row"><span>Captado em</span>{{ fmt.dateTime(lead.created_at) }}</div>
             <template v-if="attributionEntries.length">
               <q-separator class="q-my-sm" />
@@ -90,7 +90,7 @@
 import { computed, onMounted, ref } from 'vue';
 import { AppPage, AppPageTitle, AppCard, AppStatus, AppLoading, AppEmptyState } from '@/design-system';
 import { leadsService } from '@/services/leads';
-import type { LeadStatus, PlatformLead } from '@/types/admin';
+import type { PlatformLeadStatus, PlatformLead } from '@/types/admin';
 import { leadBadge, LEAD_TRIAGE_OPTIONS } from '@/utils/adminStatus';
 import { useFormat } from '@/composables/useFormat';
 import { useNotify } from '@/composables/useNotify';
@@ -102,11 +102,11 @@ const notify = useNotify();
 const lead = ref<PlatformLead | null>(null);
 const loading = ref(true);
 const saving = ref(false);
-const newStatus = ref<LeadStatus | null>(null);
+const newStatus = ref<PlatformLeadStatus | null>(null);
 
 const attributionEntries = computed(() => Object.entries(lead.value?.attribution ?? {}));
 
-async function changeStatus(status: LeadStatus) {
+async function changeStatus(status: PlatformLeadStatus) {
   if (!lead.value) return;
   saving.value = true;
   try {

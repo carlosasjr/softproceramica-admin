@@ -20,8 +20,6 @@ export { default as AppMoneyInput } from './components/base/AppMoneyInput.vue';
 export { default as AppDateInput } from './components/base/AppDateInput.vue';
 
 // Camada 2 — Compostos
-export { default as AppTimeline } from './components/composed/AppTimeline.vue';
-export { default as AppTimelineItem } from './components/composed/AppTimelineItem.vue';
 export { default as AppDialog } from './components/composed/AppDialog.vue';
 export { default as AppSearch } from './components/composed/AppSearch.vue';
 export { default as AppFilterBar } from './components/composed/AppFilterBar.vue';

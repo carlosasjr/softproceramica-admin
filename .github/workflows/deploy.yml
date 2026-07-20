@@ -13,7 +13,30 @@ permissions:
   packages: write
 
 jobs:
+  # AUD-003 (ADR-028): guardrails obrigatórios ANTES de qualquer build/deploy. Se qualquer comando
+  # falhar, o job falha e o `build` (que depende dele) não roda — sem continue-on-error, sem `|| true`.
+  # `test:tokens` NÃO se aplica ao admin: aquele guard é o resolveOrigin/T-FS-2 da Timeline, que só
+  # existe no `app` (o admin espelha o Control Plane e não tem Timeline nem tokens de origem).
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck (vue-tsc)
+        run: npm run typecheck
+
+      - name: Guardrail enums (G-2 · paridade backend↔admin)
+        run: npm run test:enums
+
   build:
+    needs: verify
     runs-on: ubuntu-latest
     permissions:
       contents: read

@@ -2,7 +2,7 @@
   <AppPage width="wide">
     <AppPageTitle eyebrow="Control Plane" title="Tenants" subtitle="Empresas provisionadas na plataforma.">
       <template #actions>
-        <q-btn color="primary" no-caps unelevated icon="sym_o_add" label="Novo Tenant" :to="{ name: 'tenant-novo' }" />
+        <q-btn color="primary" no-caps unelevated icon="sym_o_add" label="Novo Tenant" :to="{ name: 'tenant-new' }" />
       </template>
     </AppPageTitle>
 

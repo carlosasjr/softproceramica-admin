@@ -2,7 +2,7 @@
   <AppPage width="narrow">
     <AppPageTitle
       :eyebrow="lead ? 'Promoção de lead' : 'Control Plane'"
-      :title="lead ? `Promover ${lead.nome}` : 'Provisionar Tenant'"
+      :title="lead ? `Promover ${lead.name}` : 'Provisionar Tenant'"
       :subtitle="lead ? 'Converte o lead em um Tenant ativo.' : 'Cria um novo Tenant (banco, RBAC, admin).'"
     >
       <template #actions>
@@ -14,7 +14,7 @@
     <q-form v-if="phase === 'form'" @submit.prevent="submit">
       <q-banner v-if="lead" class="promo-banner q-mb-md" rounded>
         <template #avatar><q-icon name="sym_o_swap_horiz" color="primary" /></template>
-        Promovendo o lead <strong>{{ lead.nome }}</strong> ({{ lead.email }}). Ao concluir, o lead vira
+        Promovendo o lead <strong>{{ lead.name }}</strong> ({{ lead.email }}). Ao concluir, o lead vira
         <strong>convertido</strong> e passa a apontar para o Tenant.
       </q-banner>
 
@@ -233,10 +233,10 @@ onMounted(async () => {
     try {
       const l = await leadsService.get(leadId);
       lead.value = l;
-      form.name = l.empresa || l.nome;
-      form.admin_name = l.nome;
+      form.name = l.company || l.name;
+      form.admin_name = l.name;
       form.admin_email = l.email;
-      if (l.plano_slug) form.plan_slug = l.plano_slug;
+      if (l.plan_slug) form.plan_slug = l.plan_slug;
       suggestSlug();
     } catch (e) {
       notify.error(e, 'Não foi possível carregar o lead.');

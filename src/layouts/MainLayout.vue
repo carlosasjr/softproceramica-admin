@@ -85,7 +85,7 @@ const nav = [
 
 const titles: Record<string, string> = {
   tenants: 'Tenants',
-  'tenant-novo': 'Provisionar Tenant',
+  'tenant-new': 'Provisionar Tenant',
   tenant: 'Detalhe do Tenant',
   leads: 'Leads de Plataforma',
   lead: 'Detalhe do Lead',

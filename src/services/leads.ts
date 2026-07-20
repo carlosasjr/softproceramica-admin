@@ -1,6 +1,6 @@
 import { api } from './http';
 import type { Paginated, Wrapped } from '@/types/models';
-import type { LeadStatus, PlatformLead } from '@/types/admin';
+import type { PlatformLeadStatus, PlatformLead } from '@/types/admin';
 
 export interface LeadListParams {
   status?: string;
@@ -20,7 +20,7 @@ export const leadsService = {
     return data.data;
   },
 
-  async updateStatus(id: number | string, status: LeadStatus): Promise<PlatformLead> {
+  async updateStatus(id: number | string, status: PlatformLeadStatus): Promise<PlatformLead> {
     const { data } = await api.patch<Wrapped<PlatformLead>>(`/platform/leads/${id}`, { status });
     return data.data;
   },

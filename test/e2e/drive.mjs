@@ -42,7 +42,7 @@ export async function capture({ app, outDir, viewport = { width: 1440, height: 9
   await goto('/tenants/t-alfa-0001'); await shot('03-tenant-detalhe');
 
   // 3) Provisionar Tenant (formulário)
-  await goto('/tenants/novo'); await shot('04-tenant-provisionar');
+  await goto('/tenants/new'); await shot('04-tenant-provisionar');
 
   // 4) Leads de Plataforma
   await goto('/leads'); await shot('05-leads');
@@ -51,7 +51,7 @@ export async function capture({ app, outDir, viewport = { width: 1440, height: 9
   await goto('/leads/1'); await shot('06-lead-detalhe');
 
   // 6) Promoção lead → Tenant (formulário pré-preenchido)
-  await goto('/tenants/novo?lead=1'); await page.waitForTimeout(500); await shot('07-lead-promover');
+  await goto('/tenants/new?lead=1'); await page.waitForTimeout(500); await shot('07-lead-promover');
 
   // 7) Mobile — lista de Tenants
   await page.setViewportSize({ width: 390, height: 844 });
