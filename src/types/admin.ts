@@ -1,7 +1,7 @@
 // Tipos do Console Administrativo (Control Plane, ADR-024) — espelham os Resources da API.
 
 export type TenantStatus = 'provisioning' | 'trial' | 'active' | 'suspended' | 'failed';
-export type LeadStatus = 'new' | 'contacted' | 'qualified' | 'converted' | 'discarded';
+export type PlatformLeadStatus = 'new' | 'contacted' | 'qualified' | 'converted' | 'discarded';
 export type ProvisioningStatus = 'pending' | 'creating' | 'migrating' | 'seeding' | 'ready' | 'failed';
 
 export interface PlanRef {
@@ -44,7 +44,7 @@ export interface PlatformLead {
   source: string | null;
   consent: boolean;
   attribution: Record<string, string>;
-  status: LeadStatus;
+  status: PlatformLeadStatus;
   tenant_id: string | null;
   converted_at: string | null;
   created_at: string;

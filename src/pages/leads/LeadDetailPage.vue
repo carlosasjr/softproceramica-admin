@@ -10,7 +10,7 @@
           unelevated
           icon="sym_o_swap_horiz"
           label="Promover a Tenant"
-          :to="{ name: 'tenant-novo', query: { lead: lead.id } }"
+          :to="{ name: 'tenant-new', query: { lead: lead.id } }"
         />
       </template>
     </AppPageTitle>
@@ -90,7 +90,7 @@
 import { computed, onMounted, ref } from 'vue';
 import { AppPage, AppPageTitle, AppCard, AppStatus, AppLoading, AppEmptyState } from '@/design-system';
 import { leadsService } from '@/services/leads';
-import type { LeadStatus, PlatformLead } from '@/types/admin';
+import type { PlatformLeadStatus, PlatformLead } from '@/types/admin';
 import { leadBadge, LEAD_TRIAGE_OPTIONS } from '@/utils/adminStatus';
 import { useFormat } from '@/composables/useFormat';
 import { useNotify } from '@/composables/useNotify';
@@ -102,11 +102,11 @@ const notify = useNotify();
 const lead = ref<PlatformLead | null>(null);
 const loading = ref(true);
 const saving = ref(false);
-const newStatus = ref<LeadStatus | null>(null);
+const newStatus = ref<PlatformLeadStatus | null>(null);
 
 const attributionEntries = computed(() => Object.entries(lead.value?.attribution ?? {}));
 
-async function changeStatus(status: LeadStatus) {
+async function changeStatus(status: PlatformLeadStatus) {
   if (!lead.value) return;
   saving.value = true;
   try {

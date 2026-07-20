@@ -14,7 +14,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       { path: '', redirect: { name: 'tenants' } },
       { path: 'tenants', name: 'tenants', component: () => import('@/pages/tenants/TenantsListPage.vue') },
-      { path: 'tenants/novo', name: 'tenant-novo', component: () => import('@/pages/tenants/TenantProvisionPage.vue') },
+      { path: 'tenants/new', name: 'tenant-new', component: () => import('@/pages/tenants/TenantProvisionPage.vue') },
       { path: 'tenants/:id', name: 'tenant', component: () => import('@/pages/tenants/TenantDetailPage.vue'), props: true },
       { path: 'leads', name: 'leads', component: () => import('@/pages/leads/LeadsListPage.vue') },
       { path: 'leads/:id', name: 'lead', component: () => import('@/pages/leads/LeadDetailPage.vue'), props: true },
